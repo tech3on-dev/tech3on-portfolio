@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm --version)",
+      "Bash(npm install *)",
+      "Bash(npm run *)",
+      "Bash(curl -sf http://localhost:3111)",
+      "Bash(break)",
+      "Read(//tmp/**)",
+      "Bash(curl -s -o /dev/null -w \"status=%{http_code}\\\\n\" http://localhost:3111)"
+    ]
+  }
+}

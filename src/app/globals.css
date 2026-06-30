@@ -1,0 +1,165 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Light theme — White / Light Gray base with Deep Navy text */
+    --background: 0 0% 100%;
+    --foreground: 222 47% 11%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+
+    --primary: 215 89% 33%; /* Azure Blue (deep) */
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222 47% 11%;
+
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+
+    --accent: 210 40% 96%;
+    --accent-foreground: 222 47% 11%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 215 89% 43%;
+
+    /* Brand tokens */
+    --navy: 222 47% 11%;
+    --navy-deep: 222 60% 7%;
+    --azure: 211 100% 50%;
+    --azure-light: 199 95% 60%;
+
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    /* Dark theme — Deep Navy base */
+    --background: 222 60% 7%;
+    --foreground: 210 40% 98%;
+
+    --card: 222 47% 11%;
+    --card-foreground: 210 40% 98%;
+
+    --primary: 199 95% 60%; /* Azure light pops on navy */
+    --primary-foreground: 222 60% 7%;
+
+    --secondary: 217 33% 17%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217 33% 17%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 217 33% 17%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 63% 45%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217 33% 20%;
+    --input: 217 33% 20%;
+    --ring: 199 95% 60%;
+
+    --navy: 222 47% 11%;
+    --navy-deep: 222 60% 7%;
+    --azure: 211 100% 56%;
+    --azure-light: 199 95% 65%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+  }
+  /* Respect reduced motion preferences */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+  ::selection {
+    @apply bg-primary/20;
+  }
+}
+
+@layer components {
+  .container-wide {
+    @apply mx-auto w-full max-w-7xl px-6 lg:px-8;
+  }
+
+  .text-gradient {
+    @apply bg-accent-gradient bg-clip-text text-transparent;
+    background-size: 200% 200%;
+  }
+
+  .glass {
+    @apply border border-white/10 bg-white/5 backdrop-blur-xl;
+  }
+
+  .dark .glass {
+    @apply border-white/10 bg-white/5;
+  }
+
+  .glass-light {
+    @apply border border-border bg-card/70 backdrop-blur-xl;
+  }
+
+  /* Gradient border card */
+  .gradient-border {
+    position: relative;
+    background-clip: padding-box;
+  }
+  .gradient-border::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(
+      135deg,
+      hsl(var(--azure) / 0.6),
+      transparent 40%,
+      transparent 60%,
+      hsl(var(--azure-light) / 0.5)
+    );
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+
+  .section-padding {
+    @apply py-20 md:py-28;
+  }
+}
+
+@layer utilities {
+  .animation-delay-2000 {
+    animation-delay: 2s;
+  }
+  .animation-delay-4000 {
+    animation-delay: 4s;
+  }
+}
