@@ -10,7 +10,7 @@ export const siteConfig = {
     "TECH3ON delivers AI/ML solutions, cloud modernization (AWS & Azure), Python engineering, full-stack product development, and DevOps for startups and enterprises worldwide.",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.tech3on.com",
   ogImage: "/opengraph-image",
-  email: "hello@tech3on.com",
+  email: "connect.tech3on@gmail.com",
   phone: "+1 (555) 010-2030",
   calendlyUrl:
     process.env.NEXT_PUBLIC_CALENDLY_URL ?? "https://calendly.com/tech3on/consultation",

@@ -7,7 +7,13 @@
       "Bash(curl -sf http://localhost:3111)",
       "Bash(break)",
       "Read(//tmp/**)",
-      "Bash(curl -s -o /dev/null -w \"status=%{http_code}\\\\n\" http://localhost:3111)"
+      "Bash(curl -s -o /dev/null -w \"status=%{http_code}\\\\n\" http://localhost:3111)",
+      "Bash(npx next *)",
+      "Bash(npx --yes netlify-cli@latest --version)",
+      "Bash(npx netlify *)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" https://tech3on-portfolio.netlify.app)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" https://tech3on-portfolio.netlify.app/sitemap.xml)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" -X POST https://tech3on-portfolio.netlify.app/api/contact -H \"Content-Type: application/json\" -d '{}')"
     ]
   }
 }
